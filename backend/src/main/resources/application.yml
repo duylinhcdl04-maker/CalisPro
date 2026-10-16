@@ -1,0 +1,104 @@
+spring:
+  application:
+    name: calishealth-api
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 250MB
+      max-request-size: 250MB
+  datasource:
+    # AWS RDS: đặt DB_URL / DB_USERNAME / DB_PASSWORD (biến môi trường). Không có DB_URL -> MySQL local như trước.
+    url: ${DB_URL:jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:calishealth}?useSSL=false&serverTimezone=Asia/Ho_Chi_Minh&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:${DB_USER:root}}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: never   # không bao giờ chạy schema.sql / data.sql lúc khởi động
+  jpa:
+    open-in-view: false
+    hibernate:
+      # validate: chỉ kiểm tra entity khớp schema, KHÔNG tạo/sửa bảng. Dev local muốn Hibernate tự thêm cột: JPA_DDL_AUTO=update
+      ddl-auto: ${JPA_DDL_AUTO:validate}
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: false
+    baseline-on-migrate: true
+  jackson:
+    default-property-inclusion: non_null
+  mail:
+    host: ${SMTP_HOST:smtp.gmail.com}
+    port: ${SMTP_PORT:587}
+    username: ${SMTP_USER:}
+    password: ${SMTP_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+server:
+  port: ${SERVER_PORT:8081}
+  tomcat:
+    max-swallow-size: -1
+
+app:
+  # Bảo mật đăng nhập: khoá tài khoản khi nhập sai nhiều lần (cần migration_login_throttle.sql) và kiểm tra trạng thái tài khoản cho token đang dùng.
+  security:
+    login:
+      max-failures: ${LOGIN_MAX_FAILURES:5}
+      window-minutes: ${LOGIN_FAILURE_WINDOW_MINUTES:15}
+      lock-minutes: ${LOGIN_LOCK_MINUTES:15}
+    status-cache-seconds: ${ACCOUNT_STATUS_CACHE_SECONDS:30}
+  # Seeder lúc khởi động (tài khoản admin, Level Engine, Motion Rule Engine) GHI dữ liệu -> tắt mặc định.
+  # Chỉ bật (APP_SEED_ENABLED=true) cho DB local mới tạo, không bật trên DB dùng chung / AWS RDS.
+  seed:
+    enabled: ${APP_SEED_ENABLED:false}
+  # Assessment Framework V2 (docs/ASSESSMENT_FRAMEWORK_V2.md). TẮT mặc định: rule set LEVEL_ENGINE_V2 đang DRAFT (chưa có Coach review).
+  # allow-draft chỉ cho dev/test; production chỉ dùng rule set ACTIVE + template PUBLISHED.
+  assessment-v2:
+    enabled: ${ASSESSMENT_V2_ENABLED:false}
+    allow-draft: ${ASSESSMENT_V2_ALLOW_DRAFT:false}
+  jwt:
+    # Bắt buộc đặt JWT_SECRET (chuỗi ngẫu nhiên dài, tối thiểu 32 ký tự) qua biến môi trường hoặc backend/.env; không có giá trị mặc định.
+    secret: ${JWT_SECRET}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:120}
+  mail:
+    from: ${SMTP_FROM:}
+    otp-expiration-minutes: ${OTP_EXPIRATION_MINUTES:10}
+  cloudinary:
+    cloud-name: ${CLOUDINARY_CLOUD_NAME:dcupkaad1}
+    api-key: ${CLOUDINARY_API_KEY:}
+    api-secret: ${CLOUDINARY_API_SECRET:}
+  gemini:
+    # Bắt buộc đặt qua biến môi trường GEMINI_API_KEY (hoặc file backend/.env) - KHÔNG ghi key vào mã nguồn
+    api-key: ${GEMINI_API_KEY:}
+    # Thứ tự model thử lần lượt khi model trước quá tải / lỗi
+    models: ${GEMINI_MODELS:gemini-3.5-flash,gemini-flash-latest,gemini-flash-lite-latest}
+  viettel:
+    ai:
+      enabled: ${VIETTEL_AI_ENABLED:true}
+      token: ${VIETTEL_AI_TOKEN:}
+      base-url: ${VIETTEL_AI_BASE_URL:https://viettelai.vn/tts/speech_synthesis}
+      default-voice: ${VIETTEL_AI_DEFAULT_VOICE:hn-quynhanh}
+      default-speed: ${VIETTEL_AI_DEFAULT_SPEED:1.0}
+
+viettel:
+  ai:
+    enabled: ${VIETTEL_AI_ENABLED:true}
+    token: ${VIETTEL_AI_TOKEN:}
+    base-url: ${VIETTEL_AI_BASE_URL:https://viettelai.vn/tts/speech_synthesis}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  level:
+    com.calishealth: INFO

@@ -1,0 +1,907 @@
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-400-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-500-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-500-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-500-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-600-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-600-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-600-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-700-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-700-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-700-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-800-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-800-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/fonts/be-vietnam-pro/bevietnampro-800-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/anton/anton-400-vietnamese.woff2") format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/anton/anton-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Anton";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/anton/anton-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 50% 98%;
+  --surface: 0 0% 100%;
+  --surface-elevated: 47 100% 97%; /* #FFF8DE cream tint */
+  --border: 219 55% 89%; /* #AAC4F5 soft border */
+  --text-primary: 222 47% 12%;
+  --text-secondary: 215 20% 46%;
+  --accent: 225 100% 77%; /* #8CA9FF vibrant periwinkle */
+  --accent-soft: 219 79% 93%; /* #AAC4F5 soft tint */
+  --accent-strong: 225 90% 64%;
+  --success: 225 100% 77%;
+  --warning: 46 100% 70%; /* #FFF2C6 butter highlight */
+  --danger: 0 84% 60%;
+  --info: 219 79% 81%; /* #AAC4F5 */
+  --accent-deep: 225 85% 52%;
+  --accent-edge: 225 80% 40%;
+  --border-strong: 219 75% 82%; /* #AAC4F5 */
+  --surface-sunken: 47 70% 94%; /* #FFF8DE */
+}
+
+.dark {
+  --background: 222 47% 7%;
+  --surface: 222 47% 11%;
+  --surface-elevated: 217 33% 16%;
+  --border: 217 33% 20%;
+  --text-primary: 210 40% 98%;
+  --text-secondary: 215 20% 65%;
+  --accent: 199 89% 55%;
+  --accent-soft: 204 80% 16%;
+  --accent-strong: 199 95% 74%;
+  --success: 199 89% 55%;
+  --warning: 38 92% 55%;
+  --danger: 0 84% 65%;
+  --info: 217 91% 65%;
+  --accent-deep: 200 88% 40%;
+  --accent-edge: 203 85% 22%;
+  --border-strong: 222 47% 4%;
+  --surface-sunken: 222 47% 8%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--text-primary));
+  font-family: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: #8CA9FF;
+  color: #0F172A;
+}
+
+.dark ::selection {
+  background-color: #547EFF;
+  color: #FFFFFF;
+}
+
+.font-display {
+  font-family: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse-slow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wave-morph {
+  0%, 100% {
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+    transform: rotate(0deg) scale(1);
+  }
+  33% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%;
+    transform: rotate(120deg) scale(1.04);
+  }
+  66% {
+    border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+    transform: rotate(240deg) scale(0.97);
+  }
+}
+
+@keyframes wave-morph-reverse {
+  0%, 100% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+    transform: rotate(360deg) scale(1.02);
+  }
+  50% {
+    border-radius: 67% 33% 57% 43% / 47% 62% 38% 53%;
+    transform: rotate(180deg) scale(0.96);
+  }
+}
+
+@keyframes pulse-energy {
+  0%, 100% {
+    opacity: 0.45;
+    filter: blur(12px) brightness(1);
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.9;
+    filter: blur(20px) brightness(1.3);
+    transform: scale(1.08);
+  }
+}
+
+@keyframes laser-sweep {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px rgba(101, 163, 13, 0.6)) drop-shadow(0 0 24px rgba(34, 197, 94, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(132, 204, 22, 0.85)) drop-shadow(0 0 32px rgba(56, 189, 248, 0.55));
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 7s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 9s linear infinite;
+}
+
+.animate-spin-fast {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-wave-morph {
+  animation: wave-morph 10s ease-in-out infinite;
+}
+
+.animate-wave-morph-reverse {
+  animation: wave-morph-reverse 13s ease-in-out infinite;
+}
+
+.animate-pulse-energy {
+  animation: pulse-energy 4s ease-in-out infinite;
+}
+
+.animate-laser-glow {
+  animation: laser-sweep 5s ease-in-out infinite;
+}
+
+/* Custom Professional Toast Design */
+[data-sonner-toaster] [data-sonner-toast] {
+  border-radius: 16px !important;
+  background: hsl(var(--surface)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08) !important;
+  font-family: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif !important;
+  padding: 14px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+[data-sonner-toast] [data-title] {
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  color: hsl(var(--text-primary)) !important;
+  letter-spacing: -0.01em !important;
+}
+
+[data-sonner-toast] [data-description] {
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  color: hsl(var(--text-secondary)) !important;
+  margin-top: 3px !important;
+}
+
+[data-sonner-toast][data-type="success"] {
+  border-left: 4px solid hsl(var(--accent)) !important;
+}
+
+[data-sonner-toast][data-type="info"] {
+  border-left: 4px solid #38bdf8 !important;
+}
+
+[data-sonner-toast][data-type="error"] {
+  border-left: 4px solid #ef4444 !important;
+}
+
+/* ==========================================================================
+   Claymorphism & 3D Tactile Design System (Soft 3D Pillowy Surfaces)
+   ========================================================================== */
+
+.clay-card {
+  background: hsl(var(--surface));
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 16px 36px -10px rgba(70, 90, 80, 0.07),
+    0 4px 14px rgba(0, 0, 0, 0.02),
+    inset 0 2px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.03);
+  transition: all 0.28s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+.dark .clay-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.45),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.clay-card-interactive {
+  background: hsl(var(--surface));
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 12px 28px -8px rgba(70, 90, 80, 0.06),
+    inset 0 2px 2px rgba(255, 255, 255, 0.95),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.clay-card-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 20px 38px -10px rgba(70, 90, 80, 0.12),
+    inset 0 2px 2px rgba(255, 255, 255, 1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.dark .clay-card-interactive {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 14px 30px -8px rgba(0, 0, 0, 0.4),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark .clay-card-interactive:hover {
+  box-shadow: 
+    0 22px 45px -10px rgba(0, 0, 0, 0.6),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.15),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Debossed well (Recessed surface / Meter well / Inset track) */
+.clay-well {
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: 
+    inset 0 3px 6px rgba(0, 0, 0, 0.06),
+    inset 0 -1.5px 2px rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.dark .clay-well {
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 
+    inset 0 3px 7px rgba(0, 0, 0, 0.5),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* 3D Extruded Tactile Buttons */
+.clay-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: 20px;
+  padding: 12px 24px;
+  transition: all 0.2s cubic-bezier(0.34, 1.5, 0.64, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.clay-btn:active {
+  transform: translateY(2px) scale(0.99);
+}
+
+.clay-btn-emerald,
+.clay-btn-sky,
+.clay-btn-purple {
+  background: linear-gradient(180deg, #AAC4F5 0%, #8CA9FF 60%, #6384FF 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 
+    0 10px 24px -4px rgba(140, 169, 255, 0.5),
+    inset 0 2px 2px rgba(255, 255, 255, 0.75),
+    inset 0 -2.5px 4px rgba(70, 95, 210, 0.3);
+}
+
+.clay-btn-emerald:hover,
+.clay-btn-sky:hover,
+.clay-btn-purple:hover {
+  box-shadow: 
+    0 14px 28px -4px rgba(140, 169, 255, 0.65),
+    inset 0 2px 2px rgba(255, 255, 255, 0.85),
+    inset 0 -2.5px 4px rgba(70, 95, 210, 0.3);
+  transform: translateY(-1px);
+}
+
+.clay-btn-emerald:active,
+.clay-btn-sky:active,
+.clay-btn-purple:active {
+  box-shadow: 
+    0 4px 12px -2px rgba(140, 169, 255, 0.4),
+    inset 0 2px 4px rgba(70, 95, 210, 0.35);
+  transform: translateY(2px);
+}
+
+/* 3D Round Icon Button (Like social icons in Image 2) */
+.clay-round-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: hsl(var(--surface));
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 8px 18px -4px rgba(0, 0, 0, 0.08),
+    inset 0 2px 2px rgba(255, 255, 255, 1),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.34, 1.4, 0.64, 1);
+  cursor: pointer;
+}
+
+.clay-round-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 
+    0 12px 24px -4px rgba(0, 0, 0, 0.12),
+    inset 0 2px 2px rgba(255, 255, 255, 1),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.04);
+}
+
+.clay-round-btn:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 
+    0 3px 8px -2px rgba(0, 0, 0, 0.08),
+    inset 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.dark .clay-round-btn {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 20px -4px rgba(0, 0, 0, 0.4),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.15),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 3D Soft Input Well */
+.clay-input-well {
+  border-radius: 18px;
+  background: #f4f6fa;
+  border: 1.5px solid transparent;
+  box-shadow: 
+    inset 0 2.5px 5px rgba(0, 0, 0, 0.05),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.9),
+    0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.clay-input-well:focus-within {
+  background: #ffffff;
+  border-color: #0ea5e9;
+  box-shadow: 
+    0 0 0 4px rgba(14, 165, 233, 0.15),
+    inset 0 1.5px 3px rgba(0, 0, 0, 0.03),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.dark .clay-input-well {
+  background: #0b1523;
+  box-shadow: 
+    inset 0 2.5px 6px rgba(0, 0, 0, 0.4),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.dark .clay-input-well:focus-within {
+  background: #0f2038;
+  border-color: #38bdf8;
+  box-shadow: 
+    0 0 0 4px rgba(56, 189, 248, 0.2),
+    inset 0 1.5px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 3D Floating Mascot Banner Effect */
+.clay-mascot-float {
+  animation: mascot-hover 4.5s ease-in-out infinite;
+}
+
+@keyframes mascot-hover {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.8deg);
+  }
+}
+
+@keyframes human-flag-sway {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1.5deg);
+  }
+}
+
+.animate-human-flag {
+  animation: human-flag-sway 4.5s ease-in-out infinite;
+  transform-origin: 15% 50%;
+}
+
+/* Ant Design Component Soft overrides */
+.ant-progress-inner {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06) !important;
+  border-radius: 9999px !important;
+}
+
+.dark .ant-progress-inner {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+.ant-tag {
+  border-radius: 9999px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ==========================================================================
+   Tactile 3D system (Coach area, reusable anywhere)
+   One radius scale: controls 14px, panels 22px, pills full.
+   ========================================================================== */
+
+.panel-3d {
+  background: hsl(var(--surface));
+  border-radius: 22px;
+  border: 1px solid hsl(var(--border) / 0.9);
+  box-shadow:
+    0 1px 0 hsl(0 0% 100% / 0.9) inset,
+    0 -1px 0 hsl(var(--border-strong) / 0.35) inset,
+    0 2px 4px -2px hsl(214 40% 30% / 0.06),
+    0 14px 32px -16px hsl(214 45% 30% / 0.16);
+}
+
+.dark .panel-3d {
+  border-color: hsl(0 0% 100% / 0.07);
+  box-shadow:
+    0 1px 0 hsl(0 0% 100% / 0.06) inset,
+    0 -1px 0 hsl(0 0% 0% / 0.4) inset,
+    0 2px 4px -2px hsl(0 0% 0% / 0.4),
+    0 18px 36px -18px hsl(0 0% 0% / 0.7);
+}
+
+.panel-3d-interactive {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+}
+
+.panel-3d-interactive:hover {
+  transform: translateY(-3px);
+  border-color: hsl(var(--accent) / 0.35);
+  box-shadow:
+    0 1px 0 hsl(0 0% 100% / 0.9) inset,
+    0 -1px 0 hsl(var(--border-strong) / 0.35) inset,
+    0 4px 8px -4px hsl(214 40% 30% / 0.08),
+    0 22px 40px -18px hsl(201 70% 35% / 0.28);
+}
+
+.dark .panel-3d-interactive:hover {
+  box-shadow:
+    0 1px 0 hsl(0 0% 100% / 0.08) inset,
+    0 -1px 0 hsl(0 0% 0% / 0.4) inset,
+    0 24px 44px -18px hsl(0 0% 0% / 0.8);
+}
+
+/* Recessed well: tracks, inputs, segmented controls */
+.well-3d {
+  background: hsl(var(--surface-elevated));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.04), 
+    inset 0 -1px 0 rgba(255, 255, 255, 0.9),
+    0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+}
+
+.well-3d:focus-within,
+.well-3d:focus {
+  border-color: #8CA9FF;
+  box-shadow: 
+    0 0 0 4px rgba(140, 169, 255, 0.2),
+    inset 0 1.5px 3px rgba(0, 0, 0, 0.02),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.dark .well-3d {
+  background: hsl(var(--surface-sunken));
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.55), inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.dark .well-3d:focus-within,
+.dark .well-3d:focus {
+  border-color: #8CA9FF;
+  box-shadow: 0 0 0 4px rgba(140, 169, 255, 0.25), inset 0 1.5px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Raised 3D buttons: a solid tactile edge shadow under the face with smooth spring micro-animations */
+.btn-3d {
+  --edge: #9cb5f7;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  font-weight: 700;
+  border-radius: 14px;
+  user-select: none;
+  cursor: pointer;
+  transform: translateY(0) scale(1);
+  transition: transform 0.18s cubic-bezier(0.34, 1.5, 0.64, 1), 
+              box-shadow 0.18s cubic-bezier(0.34, 1.5, 0.64, 1), 
+              filter 0.18s ease, 
+              background-color 0.18s ease,
+              border-color 0.18s ease;
+}
+
+.btn-3d svg {
+  transition: transform 0.18s cubic-bezier(0.34, 1.5, 0.64, 1);
+}
+
+.btn-3d:hover svg {
+  transform: scale(1.12);
+}
+
+.btn-3d:focus-visible {
+  outline: 2px solid #8CA9FF;
+  outline-offset: 3px;
+}
+
+.btn-3d:disabled,
+.btn-3d[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  filter: saturate(0.6);
+  transform: none !important;
+}
+
+.btn-3d-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #8CA9FF 0%, #6f94ff 50%, #5078ff 100%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    0 4px 14px -2px rgba(140, 169, 255, 0.45), 
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1.5px 2px rgba(40, 70, 190, 0.35);
+}
+
+.dark .btn-3d-primary {
+  background: linear-gradient(135deg, #8CA9FF 0%, #6086fd 100%);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 4px 16px -2px rgba(140, 169, 255, 0.35), 
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-3d-secondary {
+  color: hsl(var(--text-primary));
+  background: linear-gradient(180deg, #ffffff 0%, #FFF8DE 100%);
+  border: 1px solid rgba(170, 196, 245, 0.5);
+  box-shadow: 
+    0 2px 8px -2px rgba(140, 169, 255, 0.15), 
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+.dark .btn-3d-secondary {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  backdrop-filter: blur(8px);
+  box-shadow: 
+    0 2px 8px -2px rgba(0, 0, 0, 0.5), 
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.btn-3d-danger {
+  --edge: hsl(0 70% 36%);
+  color: #fff;
+  background: linear-gradient(180deg, hsl(0 84% 62%) 0%, hsl(0 72% 50%) 100%);
+  border: 1px solid hsl(0 72% 48%);
+  box-shadow: 0 4px 0 0 var(--edge), 0 10px 18px -6px hsl(0 84% 60% / 0.4), inset 0 1px 0 hsl(0 0% 100% / 0.3);
+}
+
+.btn-3d-success {
+  --edge: hsl(152 70% 22%);
+  color: #fff;
+  background: linear-gradient(180deg, hsl(152 62% 42%) 0%, hsl(153 68% 33%) 100%);
+  border: 1px solid hsl(153 68% 31%);
+  box-shadow: 0 4px 0 0 var(--edge), 0 10px 18px -6px hsl(152 62% 40% / 0.4), inset 0 1px 0 hsl(0 0% 100% / 0.3);
+}
+
+.btn-3d-primary:hover,
+.btn-3d-secondary:hover,
+.btn-3d-danger:hover,
+.btn-3d-success:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.03);
+}
+
+.btn-3d-primary:hover { 
+  box-shadow: 
+    0 8px 22px -3px rgba(140, 169, 255, 0.6), 
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.75); 
+}
+
+.dark .btn-3d-primary:hover {
+  box-shadow: 
+    0 8px 24px -3px rgba(140, 169, 255, 0.5), 
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.btn-3d-secondary:hover { 
+  border-color: #8CA9FF;
+  box-shadow: 
+    0 6px 16px -4px rgba(140, 169, 255, 0.25), 
+    inset 0 1px 1px rgba(255, 255, 255, 1); 
+}
+
+.dark .btn-3d-secondary:hover { 
+  border-color: rgba(140, 169, 255, 0.45);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 
+    0 6px 18px -4px rgba(140, 169, 255, 0.2), 
+    inset 0 1px 1px rgba(255, 255, 255, 0.15); 
+}
+
+.btn-3d-danger:hover { box-shadow: 0 6px 0 0 var(--edge), 0 14px 22px -6px hsl(0 84% 60% / 0.45), inset 0 1px 0 hsl(0 0% 100% / 0.3); }
+.btn-3d-success:hover { box-shadow: 0 6px 0 0 var(--edge), 0 14px 22px -6px hsl(152 62% 40% / 0.45), inset 0 1px 0 hsl(0 0% 100% / 0.3); }
+
+.btn-3d-primary:active,
+.btn-3d-secondary:active,
+.btn-3d-danger:active,
+.btn-3d-success:active {
+  transform: translateY(3px) scale(0.98);
+  box-shadow: 0 1px 0 0 var(--edge), 0 3px 8px -4px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.btn-3d:disabled:hover,
+.btn-3d:disabled:active {
+  transform: none;
+  filter: saturate(0.6);
+}
+
+.btn-3d-ghost {
+  color: hsl(var(--text-secondary));
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.18s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.btn-3d-ghost:hover {
+  color: hsl(var(--text-primary));
+  background: hsl(var(--surface-elevated));
+  border-color: hsl(var(--border));
+  transform: translateY(-1px) scale(1.02);
+}
+
+.btn-3d-ghost:active { transform: translateY(1px) scale(0.97); }
+
+/* Segmented control: sunken track + raised active chip */
+.seg-3d-item[data-active="true"] {
+  color: hsl(var(--text-primary));
+  background: hsl(var(--surface));
+  box-shadow: 0 2px 0 0 hsl(var(--border-strong)), 0 4px 10px -4px hsl(214 40% 30% / 0.25), inset 0 1px 0 hsl(0 0% 100% / 0.9);
+}
+
+.dark .seg-3d-item[data-active="true"] {
+  background: hsl(var(--surface-elevated));
+  box-shadow: 0 2px 0 0 hsl(var(--border-strong)), 0 4px 10px -4px hsl(0 0% 0% / 0.6), inset 0 1px 0 hsl(0 0% 100% / 0.08);
+}
+
+/* Raised icon tile used in KPI cards and headers */
+.icon-tile-3d {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  box-shadow: 0 3px 0 0 hsl(var(--border-strong) / 0.8), inset 0 1px 0 hsl(0 0% 100% / 0.6);
+}
+
+.dark .icon-tile-3d {
+  box-shadow: 0 3px 0 0 hsl(0 0% 0% / 0.55), inset 0 1px 0 hsl(0 0% 100% / 0.08);
+}
+
+@keyframes coach-shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+.skeleton-3d {
+  border-radius: 12px;
+  background: linear-gradient(90deg, hsl(var(--surface-sunken)) 0%, hsl(var(--surface-elevated)) 50%, hsl(var(--surface-sunken)) 100%);
+  background-size: 200% 100%;
+  animation: coach-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes coach-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-rise {
+  animation: coach-rise 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scrollbar-thin { scrollbar-width: thin; scrollbar-color: hsl(var(--border)) transparent; }

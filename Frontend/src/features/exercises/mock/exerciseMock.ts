@@ -1,0 +1,298 @@
+import { ExerciseFormData } from "../types/exercise";
+import { MEDIAPIPE_33_LANDMARKS } from "../../../services/mock/exerciseBuilderMockData";
+
+export const DEFAULT_PUSH_UP_FORM_DATA_V2: ExerciseFormData = {
+  id: "ex-push-up",
+  basicInformation: {
+    name: "Standard Push Up",
+    displayName: "Hít đất chuẩn Calisthenics",
+    category: "Strength",
+    difficulty: "Beginner",
+    movementPattern: "Horizontal Push",
+    equipment: ["No Equipment"],
+    description: "Động tác nền tảng xây dựng sức mạnh thân trên toàn diện, kích hoạt ngực, tay sau và cơ lõi ổn định.",
+    tags: ["Push", "Upper Body", "Chest", "Triceps", "Core", "Bodyweight"],
+  },
+  
+  media: {
+    videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-athlete-doing-push-ups-in-a-gym-42686-large.mp4",
+    thumbnailUrl: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=800&q=80",
+    animationUrl: "",
+    phases: [
+      {
+        id: "phase-1",
+        order: 1,
+        name: "01 Setup",
+        vietnameseName: "Tư thế chuẩn bị (High Plank)",
+        description: "Đặt 2 bàn tay rộng hơn vai một chút, các ngón tay bám chắc sàn. Thân người tạo thành một đường thẳng từ gót chân lên đến đỉnh đầu.",
+        coachingCue: "Gồng chắc cơ bụng (Hollow Body) và siết chặt mông.",
+        breathing: "Hold / Braced",
+        muscleFocus: "Core & Serratus Anterior",
+      },
+      {
+        id: "phase-2",
+        order: 2,
+        name: "02 Eccentric",
+        vietnameseName: "Pha hạ người kiểm soát",
+        description: "Gập khuỷu tay góc 45 độ so với thân, từ từ hạ ngực xuống cách sàn khoảng 3-5cm trong vòng 2-3 giây.",
+        coachingCue: "Khuỷu tay khép 45 độ, không bẹt sang hai bên.",
+        breathing: "Inhale",
+        muscleFocus: "Pectoralis Major & Anterior Deltoids",
+      },
+      {
+        id: "phase-3",
+        order: 3,
+        name: "03 Bottom Position",
+        vietnameseName: "Điểm đáy biên độ",
+        description: "Ngực chạm nhẹ sàn hoặc dừng cách mặt đất 3cm, duy trì độ căng cơ tối đa mà không để võng lưng.",
+        coachingCue: "Dừng 0.5s cảm nhận ngực căng dãn hoàn toàn.",
+        breathing: "Hold / Braced",
+        muscleFocus: "Pectoralis Major",
+      },
+      {
+        id: "phase-4",
+        order: 4,
+        name: "04 Concentric",
+        vietnameseName: "Pha đẩy người bùng nổ",
+        description: "Dùng lực từ ngực và cơ tam đầu đẩy mạnh sàn ra xa, đưa cơ thể trở lại vị trí ban đầu.",
+        coachingCue: "Đẩy sàn ra xa, mở rộng khớp bả vai ở đỉnh động tác.",
+        breathing: "Exhale",
+        muscleFocus: "Triceps & Chest",
+      },
+      {
+        id: "phase-5",
+        order: 5,
+        name: "05 Finish & Protraction",
+        vietnameseName: "Khóa đỉnh và vươn bả vai (Protraction)",
+        description: "Duỗi thẳng tay có kiểm soát, đẩy xương bả vai cong nhẹ ra ngoài để bảo vệ khớp vai.",
+        coachingCue: "Đẩy căng bả vai (Protraction), không khóa khớp cùi chỏ quá mạnh.",
+        breathing: "Exhale",
+        muscleFocus: "Serratus Anterior",
+      },
+    ],
+  },
+
+  muscles: {
+    targets: [
+      {
+        muscleId: "muscle_pectoralis_major",
+        role: "PRIMARY",
+        activationLevel: "HIGH",
+        laterality: "BILATERAL",
+        expectedSensations: ["MUSCLE_TENSION", "STRETCH", "PUMP"],
+        unexpectedSensations: ["SHARP_PAIN", "JOINT_PAIN"],
+        userGuidance: "Cảm nhận cơ ngực căng dãn sâu ở đáy và co rút ép chặt khi đẩy lên đỉnh.",
+      },
+      {
+        muscleId: "muscle_triceps_brachii",
+        role: "SECONDARY",
+        activationLevel: "HIGH",
+        laterality: "BILATERAL",
+        expectedSensations: ["MUSCLE_TENSION", "FATIGUE", "BURNING"],
+        unexpectedSensations: ["JOINT_PAIN"],
+        userGuidance: "Cơ tam đầu (tay sau) nóng rực và căng cứng ở 1/3 cuối hành trình đẩy.",
+      },
+      {
+        muscleId: "muscle_deltoid_anterior",
+        role: "SECONDARY",
+        activationLevel: "MODERATE",
+        laterality: "BILATERAL",
+        expectedSensations: ["MUSCLE_TENSION"],
+        unexpectedSensations: ["SHARP_PAIN"],
+        userGuidance: "Vai trước hỗ trợ ổn định ổ khớp khi hạ thân người.",
+      },
+      {
+        muscleId: "muscle_rectus_abdominis",
+        role: "STABILIZER",
+        activationLevel: "MODERATE",
+        laterality: "CENTRAL",
+        expectedSensations: ["STABILIZATION_EFFORT"],
+        unexpectedSensations: ["SHARP_PAIN"],
+        userGuidance: "Gồng chặt cơ bụng như tư thế Plank để không bị võng cột sống thắt lưng.",
+      },
+    ],
+    anatomyImages: [
+      {
+        id: "img-1",
+        url: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=1000&q=80",
+        caption: "Sơ đồ kích hoạt thớ cơ Ngực lớn (Pectoralis Major) và Tay sau (Triceps) chịu tải chính trong pha ép đẩy.",
+        isPrimary: true,
+      },
+      {
+        id: "img-2",
+        url: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=1000&q=80",
+        caption: "Góc nhìn vai trước (Anterior Deltoid) và cơ liên sườn giữ ổn định lồng ngực.",
+        isPrimary: false,
+      },
+    ],
+    anatomyImageUrl: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=1000&q=80",
+    anatomyImageCaption: "Sơ đồ kích hoạt thớ cơ Ngực lớn (Pectoralis Major) và Tay sau (Triceps) chịu tải chính trong pha ép đẩy.",
+  },
+
+  technique: {
+    setup: "Đặt 2 bàn tay mở rộng ngang ngực hoặc rộng hơn vai 1 gang tay. Mũi chân chống vững, gót chân hướng lên trần. Khóa chặt cơ bụng và xương chậu.",
+    execution: "Hít sâu bằng mũi, hạ người có kiểm soát sao cho ngực chạm gần mặt sàn. Thở mạnh bằng miệng và đẩy dứt khoát đưa thân người lên thẳng.",
+    inhaleTiming: "Hít vào từ từ trong quá trình hạ thân người xuống (Eccentric Phase).",
+    exhaleTiming: "Thở mạnh ra khi bắt đầu dùng lực đẩy ngược người lên (Concentric Phase).",
+    tempo: "2 - 1 - 1 - 0",
+    coachingCues: [
+      { id: "cue-1", text: "Siết chặt cơ mông và cơ bụng như đang chuẩn bị chịu một cú đấm.", priority: "HIGH", category: "ALIGNMENT" },
+      { id: "cue-2", text: "Kẹp khuỷu tay tạo thành hình mũi tên chữ A (45 độ), không bẹt chữ T.", priority: "HIGH", category: "SAFETY" },
+      { id: "cue-3", text: "Tưởng tượng bạn đang đẩy cả quả đất ra xa khỏi ngực.", priority: "MEDIUM", category: "MOTIVATION" },
+      { id: "cue-4", text: "Giữ đầu thẳng, mắt nhìn chếch phía trước sàn 20-30cm.", priority: "MEDIUM", category: "ALIGNMENT" },
+    ],
+    commonMistakes: [
+      {
+        id: "mistake-1",
+        name: "Võng lưng & sụp hông (Hip Sagging)",
+        problem: "Hông bị sà xuống thấp hơn đường thẳng trục cơ thể, gây áp lực lên đốt sống thắt lưng.",
+        whyItHappens: "Cơ lõi (Core) yếu hoặc mất tập trung khi thể lực suy giảm ở những rep cuối.",
+        correction: "Gồng cứng cơ bụng, xoay nhẹ xương chậu ra sau và siết mông liên tục.",
+        severity: "HIGH",
+      },
+      {
+        id: "mistake-2",
+        name: "Khuỷu tay xòe ngang 90 độ (Elbow Flaring)",
+        problem: "Cùi chỏ bẹt vuông góc sang 2 bên tạo áp lực xé rách bao khớp vai.",
+        whyItHappens: "Bàn tay đặt quá cao so với tầm ngực hoặc thói quen sai từ trước.",
+        correction: "Kéo bàn tay lùi xuống ngang ngực dưới, hướng khuỷu tay chéo về phía sau góc 45 độ.",
+        severity: "HIGH",
+      },
+    ],
+    safety: {
+      contraindications: "Người đang có chấn thương viêm gân chóp xoay vai cấp tính cần chuyển sang biến thể Incline Push Up.",
+      safetyCues: [
+        "Luôn khởi động khớp cổ tay và xoay khớp vai tối thiểu 5 phút trước khi tập.",
+        "Thực hiện trong biên độ kiểm soát không gây đau nhức khớp.",
+      ],
+      stopConditions: [
+        "Dừng ngay lập tức nếu xuất hiện cơn đau nhói bất thường ở vai trước hoặc cùi chỏ.",
+        "Dừng set tập khi form bị gãy hoàn toàn không thể duy trì đường thẳng cơ thể.",
+      ],
+      generalConsiderations: "Tập trung vào chất lượng từng rep thay vì số lượng reps.",
+    },
+  },
+
+  aiAnalysis: {
+    enabled: true,
+    landmarks: MEDIAPIPE_33_LANDMARKS.map((lm) => ({
+      id: lm.id,
+      name: lm.name,
+      nameVi: lm.vietnameseName,
+      bodyPart: lm.bodyPart,
+      enabled: lm.enabled,
+    })),
+    jointRules: [],
+    romRules: [],
+    tempoRule: {
+      eccentricSec: 2,
+      pauseBottomSec: 0,
+      concentricSec: 1,
+      pauseTopSec: 0,
+      toleranceSec: 0.5,
+    },
+    errorRules: [],
+  },
+
+  status: "PUBLISHED",
+  version: "1.0",
+  updatedAt: "Vừa cập nhật",
+  createdAt: "2026-09-28",
+};
+
+export const BLANK_EXERCISE_FORM_DATA_V2: ExerciseFormData = {
+  basicInformation: {
+    name: "",
+    displayName: "",
+    category: "Strength",
+    difficulty: "Beginner",
+    movementPattern: "Horizontal Push",
+    equipment: ["No Equipment"],
+    description: "",
+    tags: [],
+  },
+
+  media: {
+    videoUrl: "",
+    thumbnailUrl: "",
+    animationUrl: "",
+    phases: [
+      {
+        id: "phase-init-1",
+        order: 1,
+        name: "01 Setup",
+        vietnameseName: "Tư thế chuẩn bị",
+        description: "",
+        coachingCue: "",
+        breathing: "Natural",
+        muscleFocus: "",
+      },
+      {
+        id: "phase-init-2",
+        order: 2,
+        name: "02 Execution",
+        vietnameseName: "Pha thực hiện chính",
+        description: "",
+        coachingCue: "",
+        breathing: "Inhale",
+        muscleFocus: "",
+      },
+      {
+        id: "phase-init-3",
+        order: 3,
+        name: "03 Finish",
+        vietnameseName: "Kết thúc & Khóa vị trí",
+        description: "",
+        coachingCue: "",
+        breathing: "Exhale",
+        muscleFocus: "",
+      },
+    ],
+  },
+
+  muscles: {
+    targets: [],
+  },
+
+  technique: {
+    setup: "",
+    execution: "",
+    inhaleTiming: "",
+    exhaleTiming: "",
+    tempo: "2 - 0 - 1 - 0",
+    coachingCues: [],
+    commonMistakes: [],
+    safety: {
+      contraindications: "",
+      safetyCues: [],
+      stopConditions: [],
+      generalConsiderations: "",
+    },
+  },
+
+  aiAnalysis: {
+    enabled: true,
+    landmarks: MEDIAPIPE_33_LANDMARKS.map((lm) => ({
+      id: lm.id,
+      name: lm.name,
+      nameVi: lm.vietnameseName,
+      bodyPart: lm.bodyPart,
+      enabled: lm.enabled,
+    })),
+    jointRules: [],
+    romRules: [],
+    tempoRule: {
+      eccentricSec: 2,
+      pauseBottomSec: 0,
+      concentricSec: 1,
+      pauseTopSec: 0,
+      toleranceSec: 0.5,
+    },
+    errorRules: [],
+  },
+
+  status: "DRAFT",
+  version: "1.0",
+  updatedAt: "Chưa lưu",
+  createdAt: "2026-09-28",
+};

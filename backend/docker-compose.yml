@@ -1,0 +1,15 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: calishealth-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: calishealth
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - calishealth_mysql:/var/lib/mysql
+
+volumes:
+  calishealth_mysql:

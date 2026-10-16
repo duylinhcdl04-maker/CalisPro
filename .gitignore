@@ -1,0 +1,35 @@
+# ===== Bí mật: KHÔNG BAO GIỜ đưa lên git =====
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ===== Dữ liệu người dùng và bản sao DB (chứa email, mật khẩu đã băm, dữ liệu sức khỏe) =====
+backend/backup/
+backups/
+*.dump
+backend/uploads/
+
+# ===== Log =====
+*.log
+*.log.err
+
+# ===== Sản phẩm build và thư viện =====
+node_modules/
+dist/
+build/
+backend/target/
+backend/target-ide/
+*.tsbuildinfo
+
+# ===== Công cụ cá nhân =====
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Công cụ AI cục bộ
+**/.claude/scheduled_tasks.lock
+**/.claude/settings.local.json
