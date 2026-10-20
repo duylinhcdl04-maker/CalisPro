@@ -91,19 +91,6 @@ export interface PersonalRecord {
   changeLabel: string;
 }
 
-export interface HomeData {
-  user: { name: string; avatarUrl: string | null };
-  primaryGoal: { code: string; name: string };
-  today: TodayWorkout;
-  fitness: FitnessProfile;
-  weeklySummary: WeeklySummary;
-  readiness: Readiness;
-  personalRecords: PersonalRecord[];
-  coach: AICoachInsight | null;
-  /** Ids of exercises (see EXERCISES in services/mock/exerciseLibrary.ts) recommended for the user right now. Additive/optional so existing mocks/tests keep working. */
-  recommendedExerciseIds?: string[];
-}
-
 export interface WorkoutExercise {
   id: string;
   name: string;
@@ -136,6 +123,8 @@ export interface Exercise {
   progression: { previous?: string; current: string; next?: string };
   videoUrl?: string;
   equipment?: string[];
+  /** false khi bài chưa có ảnh đại diện thật (imageUrl khi đó chỉ là ảnh giữ chỗ). Không có trường này = ảnh có sẵn. */
+  hasRealImage?: boolean;
   /** id số của bài trên máy chủ (id của Exercise là mã bài), dùng gọi API theo bài. */
   backendId?: number;
   details?: import("../features/exercises/mappers/exerciseDetailsMapper").BackendExerciseDetails | null;

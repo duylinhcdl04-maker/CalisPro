@@ -17,6 +17,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Feedback template (feedback_code -> câu hiển thị + câu đọc) và trạng thái audio.
@@ -85,6 +88,61 @@ public class MotionFeedbackService {
             out.put(t.getFeedbackCode(), new Resolved(t.getUiText(), voice, url, voice != null && url == null));
         }
         return out;
+    }
+
+    // ============================== Audio cho học viên (tạo theo yêu cầu, dùng đúng giọng Admin đã cấu hình) ==============================
+
+    private static final long AUDIO_FAILURE_COOLDOWN_MS = 60_000;
+    private final ConcurrentHashMap<String, Object> audioLocks = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Long> audioFailures = new ConcurrentHashMap<>();
+    private final ExecutorService audioWarmer = Executors.newSingleThreadExecutor(r -> {
+        Thread t = new Thread(r, "feedback-audio-warm");
+        t.setDaemon(true);
+        return t;
+    });
+
+    /**
+     * Audio của một câu phản hồi cho học viên, theo giọng (Viettel AI hoặc Gemini, giọng, tốc độ) mà Admin đã cấu hình. Đã có trong cache thì trả ngay;
+     * chưa có thì tạo MỘT lần rồi dùng lại mãi. Chỉ tạo cho câu thuộc mẫu phản hồi đang bật (không nhận văn bản tùy ý, tránh bị lạm dụng tốn phí);
+     * tạo lỗi thì không thử lại trong 60 giây. Trả về rỗng khi không có audio (client không phát gì hoặc chỉ hiện chữ).
+     */
+    public Optional<String> ensureAudio(String code) {
+        if (code == null || code.isBlank()) return Optional.empty();
+        MotionFeedbackTemplate t = templates.findByFeedbackCodeAndLanguage(code.trim().toUpperCase(Locale.ROOT), DEFAULT_LANGUAGE).filter(MotionFeedbackTemplate::isActive).orElse(null);
+        if (t == null || t.getVoiceText() == null || t.getVoiceText().isBlank()) return Optional.empty();
+        VoiceTarget vt = voiceTarget();
+        String hash = vt.hash(cacheService, t.getVoiceText());
+        Optional<String> cached = cachedUrl(hash);
+        if (cached.isPresent()) return cached;
+        Long failedAt = audioFailures.get(hash);
+        if (failedAt != null && System.currentTimeMillis() - failedAt < AUDIO_FAILURE_COOLDOWN_MS) return Optional.empty();
+        synchronized (audioLocks.computeIfAbsent(hash, k -> new Object())) {
+            cached = cachedUrl(hash);                       // người khác vừa tạo xong trong lúc chờ khóa
+            if (cached.isPresent()) return cached;
+            try {
+                TestVoiceResponse res = vt.viettel() ? viettel.generateSpeech(t.getVoiceText(), vt.voice(), vt.speed())
+                        : gemini.generateSpeech(t.getVoiceText(), "vi-VN", vt.voice(), vt.speed());
+                if (res == null || !res.success()) { audioFailures.put(hash, System.currentTimeMillis()); return Optional.empty(); }
+            } catch (RuntimeException e) {
+                audioFailures.put(hash, System.currentTimeMillis());
+                return Optional.empty();
+            }
+            audioFailures.remove(hash);
+            return cachedUrl(hash);
+        }
+    }
+
+    /** Tạo sẵn audio nền cho các câu sắp dùng (bắt đầu phiên đo) để lần phát đầu tiên không phải chờ. */
+    public void warmAudio(Collection<String> codes) {
+        List<String> list = codes.stream().filter(Objects::nonNull).distinct().toList();
+        if (list.isEmpty()) return;
+        audioWarmer.submit(() -> list.forEach(c -> {
+            try { ensureAudio(c); } catch (RuntimeException ignored) { /* không để lỗi tạo audio ảnh hưởng phiên đo */ }
+        }));
+    }
+
+    private Optional<String> cachedUrl(String hash) {
+        return voiceCache.findByTextHash(hash).map(c -> c.getAudioUrl()).filter(u -> u != null && !u.isBlank());
     }
 
     public boolean exists(String code) {

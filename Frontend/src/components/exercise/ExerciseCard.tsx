@@ -26,7 +26,7 @@ export function ExerciseCard({ exercise }: { exercise: Exercise }) {
         <div className="mt-2">
           <Badge variant="neutral">{exercise.primaryMuscles.join(", ")}</Badge>
         </div>
-        <p className="mt-3 line-clamp-2 text-sm text-text-secondary">{exercise.description}</p>
+        {exercise.description && <p className="mt-3 line-clamp-2 text-sm text-text-secondary">{exercise.description}</p>}
       </div>
     </div>
   );

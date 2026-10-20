@@ -114,12 +114,6 @@ export function AdminTopbar({
 
       {/* Right: AI System Status Pill + Notifications + Profile Menu */}
       <div className="flex items-center gap-3">
-        {/* Live AI Status Badge */}
-        <div className="hidden md:flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-400">
-          <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span>AI Vision: 99.9% Online</span>
-        </div>
-
         {/* View User App Link */}
         <Link
           to="/home"

@@ -110,6 +110,8 @@ export function useFinishSession() {
     onSuccess: () => {
       void qc.invalidateQueries({ queryKey: TODAY_KEY });
       void qc.invalidateQueries({ queryKey: ["plan-choice"] });
+      void qc.invalidateQueries({ queryKey: ["home"] });      // tổng quan: tuần, kỷ lục, buổi kế tiếp
+      void qc.invalidateQueries({ queryKey: ["me-exp"] });
     },
   });
 }

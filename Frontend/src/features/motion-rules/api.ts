@@ -34,14 +34,14 @@ export interface MeasurementDto {
 }
 export interface PhaseDto { id: number; code: string; name: string; description?: string; sortOrder: number }
 export interface ProfileDto {
-  id: number; exerciseId: number; exerciseName: string; profileName: string; version: string; status: string;
+  id: number; exerciseId: number; exerciseCode?: string; categoryName?: string; exerciseName: string; profileName: string; version: string; status: string;
   cameraView?: string; movementType: "REPS" | "HOLD"; repMetric?: MeasurementDto;
   repTopThreshold?: number; repBottomThreshold?: number; repDirection: string;
   debounceTimeMs?: number; minRepDurationMs?: number; maxRepDurationMs?: number;
   minPoseConfidence: number; minLandmarkVisibility: number;
   voiceWarningEnabled: boolean; textWarningEnabled: boolean; phases: PhaseDto[]; issues: string[];
 }
-export type ProfileUpsertRequest = Partial<Omit<ProfileDto, "id" | "exerciseId" | "exerciseName" | "status" | "phases" | "issues">>;
+export type ProfileUpsertRequest = Partial<Omit<ProfileDto, "id" | "exerciseId" | "exerciseCode" | "categoryName" | "exerciseName" | "status" | "phases" | "issues">>;
 
 export interface BandDto { severity: Severity; min?: number | null; max?: number | null; minInclusive?: boolean; maxInclusive?: boolean }
 export interface LegacyDto {
@@ -91,7 +91,7 @@ export interface FeedbackTemplateDto {
 export interface FeedbackTemplateRequest { feedbackCode: string; language?: string; uiText: string; voiceText?: string; active?: boolean }
 
 export interface ProfileSummaryDto {
-  id: number; exerciseId: number; exerciseName: string; profileName: string; version: string; status: string;
+  id: number; exerciseId: number; exerciseCode: string; exerciseName: string; profileName: string; version: string; status: string;
   cameraView: string | null; movementType: string | null; publishedRules: number; draftRules: number;
 }
 

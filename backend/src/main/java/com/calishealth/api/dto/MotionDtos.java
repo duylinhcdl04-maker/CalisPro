@@ -26,10 +26,10 @@ public final class MotionDtos {
 
     public record PhaseDto(Long id, String code, String name, String description, int sortOrder) {}
 
-    public record ProfileSummaryDto(Long id, Long exerciseId, String exerciseName, String profileName, String version,
+    public record ProfileSummaryDto(Long id, Long exerciseId, String exerciseCode, String exerciseName, String profileName, String version,
                                     String status, String cameraView, String movementType, int publishedRules, int draftRules) {}
 
-    public record ProfileDto(Long id, Long exerciseId, String exerciseName, String profileName, String version, String status,
+    public record ProfileDto(Long id, Long exerciseId, String exerciseCode, String categoryName, String exerciseName, String profileName, String version, String status,
                              String cameraView, String movementType, MeasurementDto repMetric,
                              Double repTopThreshold, Double repBottomThreshold, String repDirection,
                              Integer debounceTimeMs, Integer minRepDurationMs, Integer maxRepDurationMs,
@@ -110,6 +110,9 @@ public final class MotionDtos {
     public record GeneratedRuleOutcome(String status, String code, String name, String reason, List<String> errors, Long ruleId, String rationale) {}
 
     public record GenerateRulesResponse(boolean aiAvailable, String message, int created, int duplicates, int invalid, List<GeneratedRuleOutcome> outcomes) {}
+
+    /** audioUrl = null khi chưa có audio (client không phát giọng khác thay thế). */
+    public record FeedbackAudioDto(String audioUrl) {}
 
     public record PromptPreviewDto(String version, String prompt) {}
 

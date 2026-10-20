@@ -125,6 +125,7 @@ public class MotionRuntimeService {
         ms.setProcessingStatus(MovementProcessingStatus.PROCESSING);
         movementSessions.save(ms);
 
+        feedback.warmAudio(engine.activeRules().stream().map(r -> r.feedbackCode()).toList());   // tạo sẵn giọng đọc (đúng giọng Admin cấu hình) cho các câu sẽ dùng
         sessions.put(ms.getId(), new Runtime(ms.getId(), userId, p, def, engine, context, req.assessmentSessionId(), req.testItemId()));
 
         List<String> warnings = new ArrayList<>();

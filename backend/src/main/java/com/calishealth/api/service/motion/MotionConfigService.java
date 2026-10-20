@@ -117,7 +117,7 @@ public class MotionConfigService {
             int pub = (int) rs.stream().filter(r -> PUBLISHED.equals(r.getStatus())).count();
             int draft = (int) rs.stream().filter(r -> DRAFT.equals(r.getStatus()) || PENDING_REVIEW.equals(r.getStatus())).count();
             Exercise ex = p.getExercise();
-            return new ProfileSummaryDto(p.getId(), ex.getId(), ex.getName(), p.getProfileName(), p.getVersion(), p.getStatus(),
+            return new ProfileSummaryDto(p.getId(), ex.getId(), ex.getCode(), ex.getName(), p.getProfileName(), p.getVersion(), p.getStatus(),
                     p.getCameraView(), movementType(p), pub, draft);
         }).toList();
     }
@@ -236,7 +236,7 @@ public class MotionConfigService {
         if (p.getRepMetricJson() == null) issues.add("Chưa cấu hình chỉ số đếm rep (góc 3 điểm) → không đếm rep / không xác định pha.");
         if (p.getRepTopThreshold() == null || p.getRepBottomThreshold() == null) issues.add("Thiếu ngưỡng đỉnh/đáy của máy trạng thái rep.");
         Exercise ex = p.getExercise();
-        return new ProfileDto(p.getId(), ex.getId(), ex.getName(), p.getProfileName(), p.getVersion(), p.getStatus(),
+        return new ProfileDto(p.getId(), ex.getId(), ex.getCode(), ex.getCategory() == null ? null : ex.getCategory().getName(), ex.getName(), p.getProfileName(), p.getVersion(), p.getStatus(),
                 p.getCameraView(), movementType(p), mapper.readMeasurement(p.getRepMetricJson()), p.getRepTopThreshold(),
                 p.getRepBottomThreshold(), p.getRepDirection() == null ? "DESCENDING_FIRST" : p.getRepDirection(),
                 p.getDebounceTimeMs(), p.getMinRepDurationMs(), p.getMaxRepDurationMs(),

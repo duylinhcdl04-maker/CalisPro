@@ -90,7 +90,7 @@ export default function CoachMotionRulesPage() {
                 key={selected}
                 initialView={targetExercise && profiles.find((p) => p.id === selected)?.exerciseId === targetExercise ? "PROFILE" : "RULES"}
                 profileId={selected}
-                allProfiles={profiles.map((p) => ({ id: p.id, exerciseName: p.exerciseName, exerciseCode: p.profileName }))}
+                allProfiles={profiles.map((p) => ({ id: p.id, exerciseName: p.exerciseName, exerciseCode: p.exerciseCode }))}
                 onSelectProfileId={setSelected}
               />
             )}

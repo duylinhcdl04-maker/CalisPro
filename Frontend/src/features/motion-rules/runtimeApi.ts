@@ -43,14 +43,52 @@ export const motionRuntimeApi = {
   finish: async (sessionId: string) => (await apiClient.post<FinishMotionSessionResponse>(`${B}/${sessionId}/finish`)).data,
 };
 
-/** Phát phản hồi: audio đã tạo sẵn (cache Viettel AI) nếu có, không thì đọc câu ngắn bằng giọng trình duyệt. */
-export function speakFeedback(f: MotionFeedback) {
-  if (f.audioUrl) {
-    new Audio(f.audioUrl).play().catch(() => undefined);
-  } else if (f.needsTts && f.voiceText && "speechSynthesis" in window) {
-    const u = new SpeechSynthesisUtterance(f.voiceText);
-    u.lang = "vi-VN";
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(u);
+// ---------- Giọng đọc phản hồi ----------
+// Giọng nhắc luôn là giọng Admin đã cấu hình (Viettel AI...). Backend tạo audio theo yêu cầu cho từng câu một lần rồi dùng lại; ở đây chỉ phát.
+// Không dùng giọng đọc mặc định của trình duyệt (thường là giọng nước ngoài): máy không có giọng tiếng Việt thì chỉ hiện chữ.
+const audioUrlCache = new Map<string, string>();
+const audioRequests = new Map<string, Promise<string | null>>();
+let playing: HTMLAudioElement | null = null;
+
+async function audioFor(f: MotionFeedback): Promise<string | null> {
+  if (f.audioUrl) return f.audioUrl;
+  const code = f.feedbackCode;
+  if (!code || !f.voiceText) return null;
+  const known = audioUrlCache.get(code);
+  if (known) return known;
+  let pending = audioRequests.get(code);
+  if (!pending) {
+    pending = apiClient
+      .post<{ audioUrl: string | null }>(`/motion/feedback/${encodeURIComponent(code)}/audio`, undefined, { timeout: 30_000 })
+      .then((r) => { if (r.data.audioUrl) audioUrlCache.set(code, r.data.audioUrl); return r.data.audioUrl; })
+      .catch(() => null)
+      .finally(() => { audioRequests.delete(code); });
+    audioRequests.set(code, pending);
   }
+  return pending;
+}
+
+function speakWithVietnameseBrowserVoice(text: string | undefined) {
+  if (!text || !("speechSynthesis" in window)) return;
+  const vi = window.speechSynthesis.getVoices().find((v) => v.lang.toLowerCase().startsWith("vi"));
+  if (!vi) return;
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = vi.lang;
+  u.voice = vi;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(u);
+}
+
+/** Phát phản hồi bằng giọng Admin đã cấu hình; chưa có audio thì nhờ backend tạo (một lần cho mỗi câu). Không bao giờ dùng giọng nước ngoài. */
+export function speakFeedback(f: MotionFeedback) {
+  void audioFor(f).then((url) => {
+    if (url) {
+      playing?.pause();
+      const audio = new Audio(url);
+      playing = audio;
+      audio.play().catch(() => undefined);
+    } else {
+      speakWithVietnameseBrowserVoice(f.voiceText);
+    }
+  });
 }

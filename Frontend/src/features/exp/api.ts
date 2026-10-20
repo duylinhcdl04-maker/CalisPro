@@ -61,6 +61,6 @@ export function useDailyCheckin() {
   return useMutation({
     mutationFn: async (input: CheckinInput) =>
       (await apiClient.post("/daily-checkins", { checkinDate: localDateKey(), ...input })).data,
-    onSuccess: () => { void qc.invalidateQueries({ queryKey: ["me-exp"] }); },
+    onSuccess: () => { void qc.invalidateQueries({ queryKey: ["me-exp"] }); void qc.invalidateQueries({ queryKey: ["home"] }); },
   });
 }
